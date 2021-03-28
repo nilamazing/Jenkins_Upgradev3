@@ -1,26 +1,16 @@
 pipeline{
     agent any
     stages{
-        stage("Init"){
+        stage("Build and Package Application"){
             steps{
-                 echo "Initiating workspace"
+                 maven('clean package','/home/ndutta/workspace/Package-App-Code-Pipeline/maven-samples/single-module/pom.xml')
             }
         }
-        stage("Checkout"){
+        stage("Publish the Artifacts"){
             steps{
-                 echo "Checkout the workspace"
-            }
-        }
-        stage("Install, Build & Test"){
-            steps{
-                 echo "Installing dependencies"
-                 echo "Build the project"
-                 echo "Unit testing the build"
-            }
-        }
-        stage("Deploy"){
-            steps{
-                 echo "Deploying artefact"
+                publishers{
+                    archiveArtifacts('**/*.jar')
+                }
             }
         }
     }
