@@ -14,5 +14,10 @@ pipeline{
             }
          }
       }
+        stage("Deploy Artifacts to Staging"){
+            steps{
+                build 'Deploy_Application_Staging_item'
+            }
+      }
     }
 }
