@@ -8,15 +8,9 @@ pipeline{
                   sh 'mvn -f /home/ndutta/workspace/Package-App-Code-Pipeline/maven-samples/single-module/pom.xml clean package'
             }
         }
-        stage("Publish the Artifacts"){
-            steps{
-                publishers{
-                    archiveArtifacts('**/*.jar')
-                }
-            }
-            post{
-                success{
-                    archiveArtifacts artifacts: '**/*.jar'
+        post{
+            success{
+                archiveArtifacts artifacts: '**/*.jar'
                 }
             }
         }
