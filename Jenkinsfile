@@ -1,26 +1,27 @@
-pipeline {
-      agent any
-      stages {
-            stage('Init') {
-                  steps {
-                        echo 'Hi, this is Anshul from LevelUp360'
-                        echo 'We are Starting the Testing'
-                  }
+pipeline{
+    agent any
+    stages{
+        stage("Init"){
+            steps{
+                 echo "Initiating workspace"
             }
-            stage('Build') {
-                  steps {
-                        echo 'Building Sample Maven Project'
-                  }
+        }
+        stage("Checkout"){
+            steps{
+                 echo "Checkout the workspace"
             }
-            stage('Deploy') {
-                  steps {
-                        echo "Deploying in Staging Area"
-                  }
+        }
+        stage("Install, Build & Test"){
+            steps{
+                 echo "Installing dependencies"
+                 echo "Build the project"
+                 echo "Unit testing the build"
             }
-            stage('Deploy Production') {
-                  steps {
-                        echo "Deploying in Production Area"
-                  }
+        }
+        stage("Deploy"){
+            steps{
+                 echo "Deploying artefact"
             }
-      }
+        }
+    }
 }
