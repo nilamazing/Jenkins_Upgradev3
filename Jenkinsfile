@@ -16,7 +16,7 @@ pipeline{
       }
         stage("Deploy Artifacts to Staging"){
             steps{
-                build job:'Deploy_Application_Staging_item', wait: false
+                build job:'Deploy_Application_Staging_item'
             }
       }
       stage("Deploy Artifacts to Production"){
