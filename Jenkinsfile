@@ -14,6 +14,11 @@ pipeline{
                     archiveArtifacts('**/*.jar')
                 }
             }
+            post{
+                success{
+                    archiveArtifacts artifacts: '**/*.jar'
+                }
+            }
         }
     }
 }
