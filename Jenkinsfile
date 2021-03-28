@@ -16,7 +16,7 @@ pipeline{
       }
         stage("Deploy Artifacts to Staging"){
             steps{
-                build job:'Deploy_Application_Staging_item'
+                build job:'Deploy_Application_Staging_item', wait: false
             }
       }
       stage("Deploy Artifacts to Production"){
@@ -24,7 +24,7 @@ pipeline{
                 timeout(time:5, unit:'DAYS'){
                     input message: "Approve Production Deployment?"
                 }
-                build job:'Deploy_Application_Prod_item', wait: false
+                build job:'Deploy_Application_Prod_item'
             }
       }
     }
