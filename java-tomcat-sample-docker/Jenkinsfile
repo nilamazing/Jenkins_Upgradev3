@@ -14,10 +14,14 @@ pipeline {
         }
         stage('Copy Archive') {
          steps {
+              agent{
+                label "docker"
+            }
              script {
                  step ([$class: 'CopyArtifact',
                  projectName: 'Tomcat-Maven-Docker',
                  filter: "**/*.war",
+                 selector: buildParameter('${env.BUILD_ID}'),
                  target: '/home/nduttaworkspace/Tomcat-Maven-Docker/java-tomcat-sample-docker/']);
              }
          }
