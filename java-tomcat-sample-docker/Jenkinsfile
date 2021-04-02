@@ -13,10 +13,10 @@ pipeline {
             }
         }
         stage('Copy Archive') {
+        agent{
+            label "docker"
+        }
          steps {
-              agent{
-                label "docker"
-            }
              script {
                  step ([$class: 'CopyArtifact',
                  projectName: 'Tomcat-Maven-Docker',
