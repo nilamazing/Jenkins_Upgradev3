@@ -16,7 +16,7 @@ pipeline {
          steps {
              script {
                  step ([$class: 'CopyArtifact',
-                 projectName: 'Create_archive',
+                 projectName: 'Tomcat-Maven-Docker',
                  filter: "**/*.war",
                  target: '/home/nduttaworkspace/Tomcat-Maven-Docker/java-tomcat-sample-docker/']);
              }
