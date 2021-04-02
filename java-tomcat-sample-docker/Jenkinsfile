@@ -21,7 +21,7 @@ pipeline {
                  step ([$class: 'CopyArtifact',
                  projectName: 'Tomcat-Maven-Docker',
                  filter: "**/*.war",
-                 selector: buildParameter('${env.BUILD_ID}'),
+                 selector: latestSavedBuild(),
                  target: '/home/nduttaworkspace/Tomcat-Maven-Docker/java-tomcat-sample-docker/']);
              }
          }
