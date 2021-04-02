@@ -5,31 +5,9 @@ pipeline {
             steps {
                 sh 'mvn -f java-tomcat-sample/pom.xml clean package'
             }
-            // post {
-            //     success {
-            //         echo "Now Archiving the Artifacts...."
-            //         archiveArtifacts artifacts: '**/*.war'
-            //     }
-            // }
         }
-    //     stage('Copy Archive') {
-    //     agent{
-    //         label "docker"
-    //     }
-    //      steps {
-    //          script {
-    //              step ([$class: 'CopyArtifact',
-    //              projectName: 'Tomcat-Maven-Docker',
-    //              filter: "**/*.war",
-    //              selector: latestSavedBuild(),
-    //              target: '/home/nduttaworkspace/Tomcat-Maven-Docker/java-tomcat-sample-docker/']);
-    //          }
-    //      }
-    //  }
+    
         stage('Create Tomcat Docker Image'){
-            // agent{
-            //     label "docker"
-            // }
             steps {
                 sh "pwd"
                 sh "ls -a"
