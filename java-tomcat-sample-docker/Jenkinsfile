@@ -12,7 +12,16 @@ pipeline {
                 }
             }
         }
-
+        stagestage('Copy Archive') {
+         steps {
+             script {
+                 step ([$class: 'CopyArtifact',
+                 projectName: 'Create_archive',
+                 filter: "**/*.war",
+                 target: '/home/nduttaworkspace/Tomcat-Maven-Docker/java-tomcat-sample-docker/']);
+             }
+         }
+     }
         stage('Create Tomcat Docker Image'){
             agent{
                 label "docker"
