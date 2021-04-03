@@ -37,6 +37,8 @@ pipeline {
                 label "docker"
             }
             steps{
+                // sh "Removing container with the same name"
+                // sh "docker rm -f tomacatsamplecntnr"
                 sh "echo Creating container"
                 sh "docker run -p 7070:8080 -d --name tomacatsamplecntnr tomcatsamplewebapp:${env.BUILD_ID}"
             }
