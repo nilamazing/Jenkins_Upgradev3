@@ -17,7 +17,8 @@ pipeline {
                 label "docker"
             }
             steps{
-                copyArtifacts filter: '**/*.war', fingerprintArtifacts: true, projectName: 'Tomcat-Maven-Docker', selector: lastWithArtifacts(), target: '/home/ndutta/workspace/Tomcat-Maven-Docker/java-tomcat-sample-docker'
+                // copyArtifacts filter: '**/*.war', fingerprintArtifacts: true, projectName: 'Tomcat-Maven-Docker', selector: lastWithArtifacts(), target: '/home/ndutta/workspace/Tomcat-Maven-Docker/java-tomcat-sample-docker'
+                copyArtifacts filter: '**/*.war', fingerprintArtifacts: true, projectName: 'Tomcat-Maven-Docker', selector: specific('${env.BUILD_ID}'), target: '/home/ndutta/workspace/Tomcat-Maven-Docker/java-tomcat-sample-docker'
             }
         }
     
