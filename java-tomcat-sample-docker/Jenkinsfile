@@ -27,8 +27,8 @@ pipeline {
             }
             steps {
                 sh "pwd"
-                sh "ls -a"
-                sh "timeout 1m docker build ./java-tomcat-sample-docker -t tomcatsamplewebapp:${env.BUILD_ID}"
+                sh "ls java-tomcat-sample-docker"
+                sh "docker build ./java-tomcat-sample-docker -t tomcatsamplewebapp:${env.BUILD_ID}"
             }
         }
         stage("Creating Docker Container"){
