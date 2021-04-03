@@ -12,14 +12,14 @@ pipeline {
             }
         }
 
-        // stage("Copying generated artifacts"){
-        //     agent{
-        //         label "docker"
-        //     }
-        //     steps{
-        //         copyArtifacts filter: '**/*.war', fingerprintArtifacts: true, projectName: 'Tomcat-Maven-Docker', selector: lastWithArtifacts(), target: '/home/ndutta/workspace/Tomcat-Maven-Docker/java-tomcat-sample-docker'
-        //     }
-        // }
+        stage("Copying generated artifacts"){
+            agent{
+                label "docker"
+            }
+            steps{
+                copyArtifacts filter: '**/*.war', fingerprintArtifacts: true, projectName: 'Tomcat-Maven-Docker', selector: lastWithArtifacts(), target: '/home/ndutta/workspace/Tomcat-Maven-Docker/java-tomcat-sample-docker'
+            }
+        }
     
         stage('Create Tomcat Docker Image'){
             agent{
