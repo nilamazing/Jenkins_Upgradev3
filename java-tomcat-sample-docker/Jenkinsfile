@@ -6,8 +6,25 @@ pipeline {
                 sh 'mvn -f java-tomcat-sample-docker/pom.xml clean package'
             }
         }
+        stage("Archiving the artifacts"){
+            steps{
+                archiveArtifacts artifacts: '**/*.war'
+            }
+        }
+
+        stage("Copying generated artifacts"){
+            agent{
+                label "docker"
+            }
+            steps{
+                copyArtifacts filter: '**/*.war', fingerprintArtifacts: true, projectName: 'Tomcat-Maven-Docker', selector: workspace(), target: '/home/ndutta/workspace/Tomcat-Maven-Docker/java-tomcat-sample-docker'
+            }
+        }
     
         stage('Create Tomcat Docker Image'){
+            agent{
+                label "docker"
+            }
             steps {
                 sh "pwd"
                 sh "ls -a"
@@ -15,6 +32,9 @@ pipeline {
             }
         }
         stage("Creating Docker Container"){
+            agent{
+                label "docker"
+            }
             steps{
                 sh "echo Creating container"
                 sh "docker run -p 7070:8080 -d --name tomacatsamplecntnr tomcatsamplewebapp:${env.BUILD_ID}"
