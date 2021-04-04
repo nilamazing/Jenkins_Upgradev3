@@ -23,17 +23,17 @@ pipeline {
             }
         }
     
-        // stage('Create Tomcat Docker Image'){
-        //     agent{
-        //         label "docker"
-        //     }
-        //     steps {
-        //         sh "pwd"
-        //         sh "ls java-tomcat-sample-docker/java-tomcat-sample-docker/"
-        //         sh "ls java-tomcat-sample-docker/java-tomcat-sample-docker/target"
-        //         sh "docker build ./java-tomcat-sample-docker -t tomcatsamplewebapp:${env.BUILD_ID}"
-        //     }
-        // }
+        stage('Create Tomcat Docker Image'){
+            agent{
+                label "docker"
+            }
+            steps {
+                //sh "pwd"
+                //sh "ls java-tomcat-sample-docker/java-tomcat-sample-docker/"
+                //sh "ls java-tomcat-sample-docker/java-tomcat-sample-docker/target"
+                sh "docker build ./java-tomcat-sample-docker -t tomcatsamplewebapp:${env.BUILD_ID}"
+            }
+        }
         stage("Creating Docker Container"){
             agent{
                 label "docker"
@@ -42,7 +42,7 @@ pipeline {
                 sh "whoami"
                 sh "ls java-tomcat-sample-docker"
                 sh "chmod +x java-tomcat-sample-docker/controller.sh"
-                sh "java-tomcat-sample-docker/controller.sh"
+                sh "java-tomcat-sample-docker/controller.sh ${env.BUILD_ID}"
                 // sh "Removing container with the same name"
                 // sh "docker rm -f tomacatsamplecntnr"
                 // sh "echo Creating container"
