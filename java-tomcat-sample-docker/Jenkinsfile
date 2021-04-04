@@ -42,7 +42,7 @@ pipeline {
                 sh "whoami"
                 sh "pwd"
                 sh "ls"
-                sh "/Tomcat-Maven-Docker/java-tomcat-sample-docker"
+                sh "ls java-tomcat-sample-docker"
                 // sh "Removing container with the same name"
                 // sh "docker rm -f tomacatsamplecntnr"
                 // sh "echo Creating container"
