@@ -40,9 +40,8 @@ pipeline {
             }
             steps{
                 sh "whoami"
-                sh "pwd"
-                sh "ls"
                 sh "ls java-tomcat-sample-docker"
+                sh "chmod +x java-tomcat-sample-docker/controller.sh"
                 sh "java-tomcat-sample-docker/controller.sh"
                 // sh "Removing container with the same name"
                 // sh "docker rm -f tomacatsamplecntnr"
