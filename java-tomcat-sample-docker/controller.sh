@@ -17,6 +17,8 @@ fi
 #  echo "Removing target docker images"
 #  docker rmi $(docker images tomcatsamplewebapp -q)
 #  echo "Target Docker Images removed"
+echo "Current Residing Directory"
+pwd
  echo "Listing Contents in Curr Directory"
  ls
  echo "Building Docker image"
