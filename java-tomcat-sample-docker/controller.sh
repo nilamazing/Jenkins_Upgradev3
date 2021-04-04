@@ -14,5 +14,5 @@ then
 else
  echo "Container does not exist..Creating Container"
 fi
- docker run -p 7070:8080 -d --name tomcatsamplecntnr tomcatsamplewebapp:48
+ docker run -p 7070:8080 -d --name tomcatsamplecntnr tomcatsamplewebapp:49
  echo "Container Created"
