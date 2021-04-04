@@ -17,6 +17,7 @@ fi
  echo "Removing target docker images"
  docker rmi $(docker images tomcatsamplewebapp -q)
  echo "Target Docker Images removed"
+ echo "Listing Contents in Curr Directory"
  echo "Building Docker image"
  docker build -t tomcatsamplewebapp:$1 .
  docker run -p 7070:8080 -d --name tomcatsamplecntnr tomcatsamplewebapp:$1
