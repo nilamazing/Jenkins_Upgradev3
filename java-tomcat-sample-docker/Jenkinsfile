@@ -39,7 +39,7 @@ pipeline {
                 label "docker"
             }
             steps{
-                sh controller.sh
+                sh "controller.sh"
                 // sh "Removing container with the same name"
                 // sh "docker rm -f tomacatsamplecntnr"
                 // sh "echo Creating container"
