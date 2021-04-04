@@ -14,9 +14,9 @@ then
 else
  echo "Container does not exist"
 fi
-#  echo "Removing target docker images"
-#  docker rmi $(docker images tomcatsamplewebapp -q)
-#  echo "Target Docker Images removed"
+ echo "Removing target docker images"
+ docker rmi $(docker images tomcatsamplewebapp -q)
+ echo "Target Docker Images removed"
 # echo "Current Residing Directory"
 # pwd
 #  echo "Listing Contents in Curr Directory"
