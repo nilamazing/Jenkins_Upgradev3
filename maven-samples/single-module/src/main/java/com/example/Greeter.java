@@ -18,6 +18,6 @@ public class Greeter {
   }
 
   public static void main(String[] args){
-    Sytem.out.println("Hello From main method");
+    System.out.println("Hello From main method");
   }
 }
