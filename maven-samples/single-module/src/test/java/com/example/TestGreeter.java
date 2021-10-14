@@ -43,6 +43,6 @@ public class TestGreeter {
   public void greetShouldIncludePollingTestMessage() {
     String someone = "World, Testing Jenkins Polling Messages!! Polling should work!!";
 
-    assertThat(greeter.greet(someone).length(), is(lessThan(someone.length())));
+    assertThat(greeter.greet(someone).length(), is(greaterThan(someone.length())));
   }
 }
