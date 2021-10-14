@@ -17,7 +17,4 @@ public class Greeter {
     return String.format("Hello, %s!", someone);
   }
 
-  public static void main(String[] args){
-    System.out.println("Hello From main method");
-  }
 }
